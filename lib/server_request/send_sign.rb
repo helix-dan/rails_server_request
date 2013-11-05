@@ -13,7 +13,9 @@ module ServerRequest
     #	hash         => {id => 123}
     def initialize(host, request_path, params_hash)
       @host = host
-      @params_hash = params_hash
+      @request_path = request_path
+      @params_hash  = params_hash
+
       @uri = request_path + '?'
 
       params_hash[:ts] = Time.now.to_i
@@ -38,7 +40,7 @@ module ServerRequest
     end
 
     def post_sync
-      uri = URI.parse(@host + @uri)
+      uri = URI.parse(@host + @request_path)
       http = Net::HTTP.new(@host + @uri)
       http.post(uri.path, @params_hash)
     end
