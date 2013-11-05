@@ -40,7 +40,7 @@ module ServerRequest
     end
 
     def post_sync
-      uri = URI.parse(@host + @request_path)
+      uri = URI.parse(@host + @uri)
       http = Net::HTTP.new(@host + @uri)
       http.post(uri.path, @params_hash)
     end
