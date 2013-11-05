@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|  
   s.name        = 'server_request'
-  s.version     = '0.0.2'  
+  s.version     = '0.0.3'  
   s.date        = '2013-09-16'  
   s.summary     = "server_request"  
   s.description = "A simple ruby server sign expo gem"  

@@ -6,11 +6,15 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'server_request', :git  => 'git://github.com/helix-dan/rails_server_request.git'
+    gem 'server_request', :path => '/xx/.xx/server_request'
 
 And then execute:
 
-    $ bundle install
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install server_request
 
 ## Usage
 
