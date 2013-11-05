@@ -38,7 +38,7 @@ module ServerRequest
     end
 
     def post_sync
-      http = Net::Http.new(@host + @uri)
+      http = Net::HTTP.new(@host + @uri)
       http.post(@params_hash)
     end
 
@@ -50,8 +50,6 @@ module ServerRequest
     end
 
     def get_sync
-    	# http = Net::Http.new(@host + @uri)
-    	# http.get
       Net::HTTP.get(URI.parse(@host + @uri))
     end
 
