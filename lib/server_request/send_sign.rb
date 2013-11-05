@@ -38,8 +38,9 @@ module ServerRequest
     end
 
     def post_sync
+      uri = URI.parse(@host + @uri)
       http = Net::HTTP.new(@host + @uri)
-      http.post(@params_hash)
+      http.post(uri.path, @params_hash)
     end
 
     def get
