@@ -6,11 +6,11 @@ require 'em-http'
 
 module ServerRequest
   class SendSign
-    SECRET = 'i-promise-you-do-not-konw'
+    SECRET = 'lalala'
 
     # uri          => 'http://admin.enai.com
-    # request_path =>/communities/forums_filter/filter_topic'
-    #	hash         => {id => 123}
+    # request_path => /communities/forums_filter/filter_topic'
+    # hash         => {id => 123}
     def initialize(host, request_path, params_hash)
       @host = host
       @request_path = request_path
@@ -18,7 +18,7 @@ module ServerRequest
 
       @uri = request_path + '?'
 
-      params_hash[:ts] = Time.now.to_i
+      params_hash["ts"] = Time.now.to_i
       @hash = params_hash
 
       sorted_hash(params_hash).each do |params|
@@ -27,7 +27,6 @@ module ServerRequest
 
       encoding_string = @uri.force_encoding(Encoding::UTF_8)
       uri_encoding = URI::escape(encoding_string.to_s, /[^a-zA-Z0-9\-\.\_\~]/)
-
       sig = create_sign(uri_encoding)
       @uri += ('sig=' + sig)
     end
